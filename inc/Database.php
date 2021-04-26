@@ -24,8 +24,7 @@ class database{
 	function connect() {
 		if(!$this->conn) {
 			try {
-			$this->conn = new PDO('mysql:host='.$this->host.';dbname='.$this->baseName.'',$this->user, $this->password, 
-	        array (PDO::MYSQL_ATTR_INIT_COMMAND =>  'SET NAMES utf8'));
+			$this->conn = new PDO('mysql:host='.$this->host.';dbname='.$this->baseName.'', $this->user, $this->password, array (PDO::MYSQL_ATTR_INIT_COMMAND =>  'SET NAMES utf8'));
 			}		
 			catch  (Exception $e) {
 			die('Connection failed : ' . $e->getMessage());
@@ -41,7 +40,7 @@ class database{
 		}
 	}
 	function getOne($query) {
-		$stmt = $this->conn->prepare ($query);
+		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
 		$response = $stmt->fetch();
@@ -50,7 +49,7 @@ class database{
 	}
 
 	function  getAll($query) {
-		$stmt = $this->conn->prepare ($query);
+		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
 		$response = $stmt->fetchAll();
@@ -65,4 +64,3 @@ class database{
 
 
 }
-?>

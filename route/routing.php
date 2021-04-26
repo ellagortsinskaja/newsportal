@@ -1,7 +1,7 @@
 <?php
 
 //вычислить маршрут из адресной  строки
-$host = explode('?', $_SERVER['REQUEST_URI'])[0];
+$host = explode('?', $_SERVER['REQUEST_URI']) [0];
 $num = substr_count($host, '/');
 $path = explode('/', $host) [$num];
 

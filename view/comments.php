@@ -9,8 +9,7 @@ class ViewComments{
 		<input type="submit" value="Saada"> </form>';
 
 }
-
-public static function CommentsByNews ($arr)  {
+public static function CommentsByNews($arr) {
 
 	if ($arr!=null) {
 		echo '<table id="ctable"><th>Kommentaar</th><th>Kuupäev</th>';
@@ -21,15 +20,16 @@ public static function CommentsByNews ($arr)  {
 	}
 }
 
-public static function CommentsCountWithAncor ($value) 	{
+public static function CommentsCountWithAncor($value) {
 	if ($value['count']>0)
-		echo '<b><a href="ctable"/> ('.$value['count'].') </a></b>';
+		echo '<b><a href="#ctable"/> ('.$value['count'].') </a></b>';
 }
 
-public static function CommentsCount ($value) 	{
+public static function CommentsCount($value) {
 	if ($value['count']>0)
-		echo '<b><front color="red">('.$value['count'].') </front></b>';
+		echo '<b><font color="red">('.$value['count'].') </font></b>';
 
 }
+
 }
 //end class

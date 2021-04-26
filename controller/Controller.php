@@ -3,13 +3,12 @@
 class Controller
 {
 	
-	public static function StartSite()
-	{
+	public static function StartSite() {
 		$arr = News::getLast10News();
 		include_once 'view/start.php';
 	}
 
-	public static function AllCategory(){
+	public static function AllCategory() {
 		$arr = Category::getAllCategory();
 		include_once 'view/category.php';
 	}
@@ -19,12 +18,12 @@ class Controller
 		include_once 'view/allnews.php';
 	}
 
-	public static function NewsByCatID($id){
-		$arr = News::NewsByCategoryID($id);
+	public static function NewsByCatID($id)  {
+		$arr = News::getNewsByCategoryID($id);
 		include_once 'view/catnews.php';
 	}
 
-	public static function NewsByID($id){
+	public static function NewsByID($id) {
 	$n = News::getNewsByID($id);
 	include_once 'view/readnews.php';
 	}
@@ -40,14 +39,14 @@ class Controller
 	}
   //список комментариев
 
-    public static function Comments($newsid){
+    public static function Comments($newsid) {
 $arr = Comments::getCommentByNewsID($newsid);
 ViewComments::CommentsByNews($arr);
 }
 
 //количество комментариев к новости
 
-public static function CommentsCount($newsid){
+public static function CommentsCount($newsid) {
     $arr = Comments::getCommentsCountByNewsID($newsid);
     ViewComments::CommentsCount($arr);
 }
@@ -55,7 +54,7 @@ public static function CommentsCount($newsid){
 //ССылка- переход к списку комментариев
 
 
-public static function CommentsCountWithAncor($newsid){
+public static function CommentsCountWithAncor($newsid) {
    $arr = Comments::getCommentsCountByNewsID($newsid);
    ViewComments::CommentsCountWithAncor($arr);
 }
