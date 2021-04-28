@@ -1,7 +1,7 @@
 <?php
 
 //вычислить маршрут из адресной  строки
-$host = explode('?', $_SERVER['REQUEST_URI']) [0];
+$host = explode('?', $_SERVER['REQUEST_URI'])[0];
 $num = substr_count($host, '/');
 $path = explode('/', $host) [$num];
 
@@ -25,7 +25,7 @@ elseif($path == 'news' and isset($_GET['id'])) {
 
 }
 
-elseif ($path == 'insertcomment' and isset($_GET['comment'],$_GET['id']))
+elseif($path == 'insertcomment' and isset($_GET['comment'],$_GET['id']))
  {
 	$response = Controller::InsertComment($_GET['comment'],$_GET['id']);
 }

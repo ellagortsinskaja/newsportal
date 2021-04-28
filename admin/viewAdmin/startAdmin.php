@@ -15,4 +15,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php include "viewAdmin/temlates/layot.php";
+<?php include "viewAdmin/templates/layot.php";
