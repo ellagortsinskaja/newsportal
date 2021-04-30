@@ -15,30 +15,32 @@ class Register{
         $name = $_POST['name'];
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         if(!$email) {
-        	$errorString.="Неправильный email"<br/>
+        	$errorString.="Неправильный email<br/>";
         }
         $password = $_POST['password'];
         $confirm = $_POST['confirm'];
         if (!$password || !$confirm || mb_strlen($password) < 6) {
-        	$errorString.="Пароль должен быть  больше  6 символов<br />";
+        	$errorString.="Пароль должен быть  больше  6 символов <br />";
         }
 
- 		if ($password!=$confirm_) {
- 			$errorString.="Пароли не совпадают<br />"ж
+ 		if ($password!=$confirm) {
+ 			$errorString.="Пароли не совпадают<br />";
  	}
  	if (mb_strlen($errorString)==0 ) {
 
  		$passwordHash =  password_hash($_POST['password'], PASSWORD_DEFAULT);
  		$date=Date("Y-m-d");
 
- 		$sql="INSERT INTO `users` (`id`, `uaername`, `email`, `password`, `ststus`, `registration_date`, `pass`) VALUES (NULL, '$name', '$email', '$passwordHash', 'user', '$date', '$password')";
+ 		$sql="INSERT INTO `users` (`id`, `username`, `email`, `password`, `status`, `registration_date`, `pass`) VALUES (NULL, '$name', '$email', '$passwordHash', 'user', '$date', '$password')";
  		$db =new Database ();
- 		$item = $db->executRun($sql);
+ 		$item = $db->executeRun($sql);
 
- 		if ($item) 
+ 		if ($item) {
  			$controll=array(0=>true);
- 		else
+ 		}
+ 		else {
  			$controll=array(0=>false,1=>'error');
+ 		}
  			
  		}
  		else
@@ -48,3 +50,5 @@ class Register{
  }
 	return $controll;
 }
+}
+?>

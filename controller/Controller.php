@@ -63,12 +63,12 @@ public function registerForm() {
 
 include_once ('view/formRegister.php');
 }
-public function registerUser () {
+public function registerUser() {
 
-$result = Register::registerUser ();
+$result = Register::registerUser();
 include_once ('view/answerRegister.php');
-{
-	# code...
-}
+
+	
+
 }
 }//end class
