@@ -15,7 +15,7 @@ class controllerAdmin {
 
 	}
 	//выход из админ панели
-	public static function logoutAction() {
+	public function logoutAction() {
 		modelAdmin::userLogout();
 		include_once('viewAdmin/formLogin.php');
 	}
