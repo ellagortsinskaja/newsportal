@@ -45,7 +45,7 @@ class Register{
  		}
  		else
  	{
- 		$controll=array(0=>false, 1==>$errorString );
+ 		$controll=array(0=>false, 1=>$errorString );
  	}
  }
 	return $controll;
